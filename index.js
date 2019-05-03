@@ -27,6 +27,8 @@ module.exports = {
 
     if (fs.existsSync(configFactory)) {
       this._config = Object.assign(options, require(configFactory)(this._resolveEnvironment()));
+    } else {
+      this._config = {};
     }
 
     let loadedConfig = dotenv.config({path: options.path});
